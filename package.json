@@ -1,0 +1,35 @@
+{
+  "name": "adamcantcode",
+  "version": "1.0.0",
+  "description": "adamcantcode theme package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamcantcode/adamcantcode.git"
+  },
+  "author": "Adam M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamcantcode/adamcantcode/issues"
+  },
+  "homepage": "https://github.com/adamcantcode/adamcantcode#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "swup": "^2.0.8"
+  }
+}
