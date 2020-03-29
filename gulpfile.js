@@ -1,7 +1,8 @@
 var gulp        = require('gulp'),
     scss        = require('gulp-sass'),
     concat      = require('gulp-concat'),
-    uglify      = require('gulp-uglify'),
+    //uglify      = require('gulp-uglify'),
+    terser      = require('gulp-terser'),
     csso        = require('gulp-csso'),
     prefixer    = require('gulp-autoprefixer'),
     sourcemaps  = require('gulp-sourcemaps'),
@@ -54,8 +55,8 @@ gulp.task('js', function() {
       src.vendor + '/bootstrap/dist/js/bootstrap.js',
       // src.vendor + '/uikit/dist/js/uikit.js',
       // src.vendor + '/lax.js/lib/lax.min.js',
-      // src.vendor + '/swup/dist/swup.js',
-      // src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.min.js',
+      src.vendor + '/swup/dist/swup.min.js',
+      src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.min.js',
       // src.vendor + '/aos/dist/aos.js',
       // src.vendor + '/blobs/index.js',
       // src.vendor + "/scroll-parallax/dist/Parallax.js",
@@ -69,7 +70,7 @@ gulp.task('js', function() {
       src.js + '/*.js' // NOTE Do all js files within src/js
     ])
     .pipe(concat('app.js'))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(gulp.dest(dest.js))
     .pipe(browserSync.stream());
 });
