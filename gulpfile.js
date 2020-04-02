@@ -70,7 +70,7 @@ gulp.task('js', function() {
       src.js + '/*.js' // NOTE Do all js files within src/js
     ])
     .pipe(concat('app.js'))
-    //.pipe(terser())
+    .pipe(terser())
     .pipe(gulp.dest(dest.js))
     .pipe(browserSync.stream());
 });

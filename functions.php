@@ -19,18 +19,29 @@ function add_scripts_styles()
 
 function redirect_login_page()
 {
-
-  if ($_SERVER["REMOTE_ADDR"] !== '96.84.79.153') { // MY IP 96.84.79.153
-
-    // Store for checking if this page equals wp-login.php
-    $page_viewed = basename($_SERVER['REQUEST_URI']);
-
+  $ipaddress = '';
+  if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+    $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+  } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else if (isset($_SERVER['HTTP_X_FORWARDED'])) {
+    $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+  } else if (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+    $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+  } else if (isset($_SERVER['HTTP_FORWARDED'])) {
+    $ipaddress = $_SERVER['HTTP_FORWARDED'];
+  } else if (isset($_SERVER['REMOTE_ADDR'])) {
+    $ipaddress = $_SERVER['REMOTE_ADDR'];
+  } else {
+    $ipaddress = 'UNKNOWN';
+  }
+  if ($ipaddress !== '96.84.79.153' && $ipaddress !== '::1') { 
     // Where we want them to go
-    $login_page  = 'https://adamcantcode.com/coming-soon';
-    if ($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+    $comingSoon  = '/coming-soon';
+    if (strpos($_SERVER['REQUEST_URI'], 'wp-login')) {
 
       // And away they go...
-      wp_redirect($login_page);
+      wp_redirect($comingSoon);
       exit();
     }
   }
