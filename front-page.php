@@ -4,23 +4,38 @@ get_header();
 
 if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <p>Test</p>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">Test Card</h4>
-              <p class="card-text">ACC</p>
-            </div>
-            <div class="card-footer text-muted">
-              <p><a href="/uncatogorized/test">Test post</a></p>
-            </div>
-          </div>
-        </div>
+    <?php
+    $launch = strtotime("2020-05-01");
+    $countDown = round(($launch - time()) / (60 * 60 * 24));
+    $format = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+    $word = $format->format($countDown);
+    $wordSpace = str_replace('-', ' ', $word);
+    $words = explode(' ', $wordSpace);
+    ?>
+    <div class="container-fluid">
+      <div class="countdown d-flex justify-content-center align-items-center">
+        <h1 class="font-weight-bold">
+          <?php
+
+          $i = 0;
+          $len = count($words);
+          if ($len > 1) {
+            foreach ($words as $num) {
+              if ($i == 0) {
+                echo $num;
+              } elseif ($i == $len - 1) {
+                echo '<span class="font-weight-lighter">' . $num . '</span>';
+              }
+              $i++;
+            }
+          } else {
+            echo $word;
+          }
+          ?>
+        </h1>
       </div>
     </div>
 <?php endwhile;
 endif; ?>
+
+<?php get_footer(); ?>

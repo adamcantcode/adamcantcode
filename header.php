@@ -9,9 +9,9 @@
   <meta name="author" content="">
 
   <title><?php wp_title()?></title>
-  <link href="https://fonts.googleapis.com/css?family=Heebo:900|Roboto:400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 
 <body>
-  <div id="swup" class="transition-fade">
+  <!-- <div id="swup" class="transition-fade"> -->

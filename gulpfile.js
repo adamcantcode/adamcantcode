@@ -24,7 +24,7 @@ gulp.task('css', function() {
     .src([
       // src.vendor + '/uikit/dist/css/uikit.css',
       // src.vendor + "/@fortawesome/fontawesome-free/scss/*.scss",
-      // src.vendor + '/uikit/src/scss/components/animation.scss',
+      src.vendor + '/uikit/src/scss/components/animation.scss',
       // src.vendor + '/aos/dist/aos.css',
       src.scss + '/*.scss'
     ])
@@ -53,7 +53,7 @@ gulp.task('js', function() {
       src.vendor + '/jquery/dist/jquery.js',
       src.vendor + '/popper.js/dist/umd/popper.min.js',
       src.vendor + '/bootstrap/dist/js/bootstrap.js',
-      // src.vendor + '/uikit/dist/js/uikit.js',
+      src.vendor + '/uikit/dist/js/uikit.js',
       // src.vendor + '/lax.js/lib/lax.min.js',
       src.vendor + '/swup/dist/swup.min.js',
       src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.min.js',
@@ -70,7 +70,7 @@ gulp.task('js', function() {
       src.js + '/*.js' // NOTE Do all js files within src/js
     ])
     .pipe(concat('app.js'))
-    .pipe(terser())
+    //.pipe(terser())
     .pipe(gulp.dest(dest.js))
     .pipe(browserSync.stream());
 });

@@ -17,3 +17,23 @@ function add_scripts_styles()
   wp_enqueue_style('acc-styles', get_theme_file_uri('/dist/css/app.css'));
 }
 
+function redirect_login_page()
+{
+
+  if ($_SERVER["REMOTE_ADDR"] !== '96.84.79.153') { // MY IP 96.84.79.153
+
+    // Store for checking if this page equals wp-login.php
+    $page_viewed = basename($_SERVER['REQUEST_URI']);
+
+    // Where we want them to go
+    $login_page  = 'https://adamcantcode.com/coming-soon';
+    if ($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+
+      // And away they go...
+      wp_redirect($login_page);
+      exit();
+    }
+  }
+}
+
+add_action('init', 'redirect_login_page');
