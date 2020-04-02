@@ -35,7 +35,7 @@ function redirect_login_page()
   } else {
     $ipaddress = 'UNKNOWN';
   }
-  if ($ipaddress !== '96.84.79.153' && $ipaddress !== '::1') { 
+  if ($ipaddress !== '96.84.79.153' && $ipaddress !== '::1' && $ipaddress !== '24.1.106.157'  ) { 
     // Where we want them to go
     $comingSoon  = '/coming-soon';
     if (strpos($_SERVER['REQUEST_URI'], 'wp-login')) {
