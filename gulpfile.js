@@ -7,6 +7,7 @@ var gulp        = require('gulp'),
     prefixer    = require('gulp-autoprefixer'),
     sourcemaps  = require('gulp-sourcemaps'),
     browserSync = require('browser-sync'),
+    shell       = require('gulp-shell'),
     reload      = browserSync.reload,
     src         = {
     scss  : 'src/scss',
@@ -56,7 +57,8 @@ gulp.task('js', function() {
       src.vendor + '/uikit/dist/js/uikit.js',
       // src.vendor + '/lax.js/lib/lax.min.js',
       src.vendor + '/swup/dist/swup.min.js',
-      src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.min.js',
+      src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.js',
+      // src.vendor + '/number-to-words/numberToWords.js',
       // src.vendor + '/aos/dist/aos.js',
       // src.vendor + '/blobs/index.js',
       // src.vendor + "/scroll-parallax/dist/Parallax.js",
@@ -67,7 +69,7 @@ gulp.task('js', function() {
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js",
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js",
-      src.js + '/*.js' // NOTE Do all js files within src/js
+      src.js + '/theme.js' // NOTE Do all js files within src/js
     ])
     .pipe(concat('app.js'))
     .pipe(terser())
@@ -89,6 +91,10 @@ gulp.task('watch', function() {
 //     .pipe(gulp.dest(dest.fonts));
 // });
 
-gulp.task('default', gulp.series('css'));
-gulp.task('js', gulp.series('js'));
-gulp.task('run', gulp.series('css', 'js'));
+gulp.task('bundle', shell.task([
+  'browserify C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/client.js -o C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/dist/js/app.bundle.js'
+]));
+
+// gulp.task('default', gulp.series('css'));
+// gulp.task('js', gulp.series('js'));
+gulp.task('run', gulp.series('css', 'js', 'bundle'));

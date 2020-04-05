@@ -14,6 +14,7 @@ function add_scripts_styles()
   // wp_enqueue_script('acc_script_swup', get_theme_file_uri('/node_modules/swup/dist/swup.min.js'), array('jquery'));
   // wp_enqueue_script('acc_script_swup_scroll', get_theme_file_uri('/node_modules/@swup/scroll-plugin/dist/SwupScrollPlugin.min.js'), array('jquery'));
   wp_enqueue_script('acc-script', get_theme_file_uri('/dist/js/app.js'), array('jquery'));
+  wp_enqueue_script('acc-script-bundle', get_theme_file_uri('/dist/js/app.bundle.js'), array('jquery'));
   wp_enqueue_style('acc-styles', get_theme_file_uri('/dist/css/app.css'));
 }
 

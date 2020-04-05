@@ -15,23 +15,25 @@ if (have_posts()) : ?>
     <div class="container-fluid">
       <div class="countdown d-flex justify-content-center align-items-center">
         <h1 class="font-weight-bold">
-          <?php
+          <div class="box p-5">
+            <?php
 
-          $i = 0;
-          $len = count($words);
-          if ($len > 1) {
-            foreach ($words as $num) {
-              if ($i == 0) {
-                echo $num;
-              } elseif ($i == $len - 1) {
-                echo '<span class="font-weight-lighter">' . $num . '</span>';
+            $i = 0;
+            $len = count($words);
+            if ($len > 1) {
+              foreach ($words as $num) {
+                if ($i == 0) {
+                  echo $num;
+                } elseif ($i == $len - 1) {
+                  echo '<span class="font-weight-lighter">' . $num . '</span>';
+                }
+                $i++;
               }
-              $i++;
+            } else {
+              echo $word;
             }
-          } else {
-            echo $word;
-          }
-          ?>
+            ?>
+          </div>
         </h1>
       </div>
     </div>
