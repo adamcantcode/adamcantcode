@@ -13,31 +13,41 @@
 },{}],2:[function(require,module,exports){
 var converter = require('C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words');
 
-console.log();
-
 var countDownDate = new Date('2020-05-01 00:00:00 GMT-0500').getTime();
 
-// var myfunc = setInterval(function() {
-//   var now = new Date().getTime();
-//   var timeleft = countDownDate - now;
+var myfunc = setInterval(function () {
+  var now = new Date().getTime();
+  var timeleft = countDownDate - now;
 
-//   var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-//   var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//   var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-//   var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-//   var milliseconds = Math.floor(timeleft);
+  var day = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+  var hour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var min = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+  var sec = Math.floor((timeleft % (1000 * 60)) / 1000);
+  var mil = Math.floor(timeleft % 1000);
 
-//   console.log(
-//     converter.toWords(days) +
-//       ' ' +
-//       converter.toWords(hours) +
-//       ' ' +
-//       converter.toWords(minutes) +
-//       ' ' +
-//       converter.toWords(seconds) +
-//       ' ' +
-//       converter.toWords(milliseconds)
-//   );
-// }, 1);
+  function removeDash(number) {
+    var text = converter.toWords(number);
+    if (text.search('-')) {
+      text = text.split(/-/g);
+    } else if (text.search(' ')) {
+      text = text.split(/\s/g);
+    }
+    return text;
+  }
+  var days = removeDash(day);
+  var hours = removeDash(hour);
+  var mins = removeDash(min);
+  var secs = removeDash(sec);
+  $('.countdown .num.day span:nth-of-type(1)').text(days[0]);
+  $('.countdown .num.hour span:nth-of-type(1)').text(hours[0]);
+  $('.countdown .num.min span:nth-of-type(1)').text(mins[0]);
+  $('.countdown .num.sec span:nth-of-type(1)').text(secs[0]);
+  $('.countdown .num.day span:nth-of-type(2)').text(days[1]);
+  $('.countdown .num.hour span:nth-of-type(2)').text(hours[1]);
+  $('.countdown .num.min span:nth-of-type(2)').text(mins[1]);
+  $('.countdown .num.sec span:nth-of-type(2)').text(secs[1]);
+}, 1000);
+
+// $('.countdown > h1 > div').css('min-width', '30vw' )
 
 },{"C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words":1}]},{},[2]);
