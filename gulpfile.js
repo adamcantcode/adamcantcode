@@ -69,7 +69,8 @@ gulp.task('js', function() {
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js",
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js",
-      src.js + '/theme.js' // NOTE Do all js files within src/js
+      src.js + '/theme.js',
+      dest.js + '/app.bundle.js'
     ])
     .pipe(concat('app.js'))
     .pipe(terser())
@@ -82,7 +83,7 @@ gulp.task('watch', function() {
     proxy: 'http://adamcantcode.local/'
   });
   gulp.watch(src.scss + '/*.scss', gulp.series('css'));
-  gulp.watch(src.js + '/*.js', gulp.series('js')).on('change', reload);
+  gulp.watch(src.js + '/*.js', gulp.series('bundle', 'js')).on('change', reload);
   gulp.watch('**/*.php').on('change', reload);
 });
 
@@ -97,4 +98,5 @@ gulp.task('bundle', shell.task([
 
 // gulp.task('default', gulp.series('css'));
 // gulp.task('js', gulp.series('js'));
-gulp.task('run', gulp.series('css', 'js', 'bundle'));
+gulp.task('run', gulp.series('css', 'bundle', 'js' ));
+gulp.task('build', gulp.series('bundle', 'js' ));

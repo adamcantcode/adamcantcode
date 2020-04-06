@@ -4,6 +4,9 @@ html {
 }
 .countdown {
   height: 100vh;
+  h1 {
+    min-width: 50vw;
+  }
 }
 // .box {
 //   border: 1px solid #B5D2FC;
