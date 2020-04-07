@@ -70,7 +70,7 @@ gulp.task('js', function() {
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
       // src.vendor + "/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js",
       src.js + '/theme.js',
-      dest.js + '/app.bundle.js'
+      src.js + '/app.bundle.js'
     ])
     .pipe(concat('app.js'))
     .pipe(terser())
@@ -93,7 +93,7 @@ gulp.task('watch', function() {
 // });
 
 gulp.task('bundle', shell.task([
-  'browserify C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/client.js -o C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/dist/js/app.bundle.js'
+  'browserify C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/client.js -o C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/app.bundle.js'
 ]));
 
 // gulp.task('default', gulp.series('css'));

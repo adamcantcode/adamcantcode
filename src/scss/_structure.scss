@@ -4,10 +4,13 @@ html {
 }
 .countdown {
   height: 100vh;
-  h1 {
-    min-width: 50vw;
-  }
 }
+
+::selection {
+  background: unset;
+  color: unset;
+}
+
 // .box {
 //   border: 1px solid #B5D2FC;
 //   box-shadow: inset 5px 5px #B5D2FC, inset -5px -5px #B5D2FC,

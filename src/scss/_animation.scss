@@ -8,7 +8,7 @@ html.is-animating .transition-fade {
 }
 
 .box {
-  transition: filter 5000ms ease, opacity 500ms ease;
+  transition: filter 5000ms ease, opacity 500ms ease-in;
   filter: blur(25px);
   opacity: 0;
 }

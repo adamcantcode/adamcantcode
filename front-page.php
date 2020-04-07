@@ -5,9 +5,9 @@ get_header();
 if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
     <div class="container-fluid">
-      <div class="countdown d-flex justify-content-center align-items-center">
+      <div class="countdown d-flex align-items-end p-5">
         <h1 class="font-weight-bold">
-          <div class="box p-5">
+          <div class="box">
             <div class="num day d-flex">
               <span class="font-weight-bold"></span>
               <span class="font-weight-light"></span>
