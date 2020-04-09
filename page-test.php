@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or header('Location: /'); ?>
+
 <?php /* Template Name: Testing */ ?>
 
 <?php
@@ -16,21 +18,12 @@ if (have_posts()) : ?>
           <div style="height: 100vh"></div>
           <div class="d-flex justify-content-center">
             <h1>
+
               <?php
               $nameArray = explode(' ', 'Adam Macaulay');
               $titleArray = explode(' ', 'Web Developer');
-
-              foreach($nameArray as $name) {
-                
-              }
-
-              foreach ($name as $char) {
-                $x = rand(-50, 50);
-                $y = rand(0, -70);
-                $r = rand(0, 360);
-                echo '<span class="name" uk-parallax="x:' . $x . 'vw,0;y:' . $y . 'vh,0;rotate:' . $r . ',0;viewport:0.10" style="display: inline-block">' . $char . '</span>';
-                unset($i);
-              }
+              explodeAndSplit($nameArray);
+              explodeAndSplit($titleArray);
               ?>
             </h1>
           </div>

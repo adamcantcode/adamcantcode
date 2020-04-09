@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or header('Location: /'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
