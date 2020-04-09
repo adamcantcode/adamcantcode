@@ -7,16 +7,23 @@ html {
 }
 
 h1 {
-  span {
-    // &:after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   height: 100%;
-    //   width: 100%;
-    //   background: red;
-    // }
+  .first-line {
+    &:nth-of-type(1) {
+    }
+    &:nth-of-type(2) {
+      font-size: $h2-font-size;
+    }
+    span {
+    }
+  }
+}
+.row {
+  [class^='col-'] {
+    border-left: 1px solid rgba($primary, 0.3333);
+    border-bottom: 1px solid rgba($primary, 0.3333);
+  }
+  &:last-child {
+    border-right: 1px solid rgba($primary, 0.3333);
   }
 }
 

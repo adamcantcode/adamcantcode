@@ -13,7 +13,7 @@
 },{}],2:[function(require,module,exports){
 var converter = require('C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words');
 
-var countDownDate = new Date('2020-05-01 00:00:00 GMT-0500').getTime();
+var countDownDate = new Date('2020-05-01T00:00:00').getTime();
 
 function convertAndFormat(unit) {
   var text = converter.toWords(unit);
