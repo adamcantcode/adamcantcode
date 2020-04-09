@@ -1,15 +1,29 @@
 html {
   margin: 0;
-  cursor: none;
+  // cursor: none;
 }
 .countdown {
   height: 100vh;
 }
 
-::selection {
-  background: unset;
-  color: unset;
+h1 {
+  span {
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   height: 100%;
+    //   width: 100%;
+    //   background: red;
+    // }
+  }
 }
+
+// ::selection {
+//   background: unset;
+//   color: unset;
+// }
 
 // .box {
 //   border: 1px solid #B5D2FC;

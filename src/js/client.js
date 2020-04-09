@@ -10,24 +10,24 @@ function convertAndFormat(unit) {
   } else if (text.search(/\s/g)) {
     text = text.split(/\s/g);
   }
-
   return text;
 }
 
 var myfunc = setInterval(function () {
   var now = new Date().getTime();
   var timeleft = countDownDate - now;
+
   var day = Math.floor(timeleft / (1000 * 60 * 60 * 24));
   var hour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var min = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
   var sec = Math.floor((timeleft % (1000 * 60)) / 1000);
-  var mil = Math.floor(timeleft % 1000);
-
+  // var mil = Math.floor(timeleft % 1000);
+  
   var days = convertAndFormat(day);
   var hours = convertAndFormat(hour);
   var mins = convertAndFormat(min);
   var secs = convertAndFormat(sec);
-  var mils = convertAndFormat(mil);
+  // var mils = convertAndFormat(mil);
 
   if (days[0] !== $('.countdown .num.day span:nth-of-type(1)').text()) {
     days[0] != null

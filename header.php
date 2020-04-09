@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <title><?php wp_title()?></title>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;900&family=Roboto&display=swap" rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 
