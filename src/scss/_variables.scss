@@ -65,7 +65,7 @@ $primary:       #a682ff;
 $secondary:     #8FFF82;
 $success:       $green;
 $info:          $cyan;
-$warning:       $yellow;
+$warning:       #FFD882;
 $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-900;
@@ -111,7 +111,7 @@ $font-weight-bolder: 900;
 $font-weight-base:            $font-weight-normal;
 $line-height-base:            1.5;
 
-// $h1-font-size:                $font-size-base * 7.5;
+$h1-font-size:                $font-size-base * 7.5;
 $h2-font-size:                $font-size-base * 5.625;
 $h3-font-size:                $font-size-base * 1.75;
 $h4-font-size:                $font-size-base * 1.5;

@@ -20,8 +20,7 @@ function explodeAndSplit($array)
       $x = rand(-50, 50);
       $y = rand(0, -70);
       $r = rand(0, 360);
-      //echo '<span class="name' . $weight . '" uk-parallax="x:' . $x . 'vw,0;y:' . $y . 'vh,0;rotate:' . $r . ',0;viewport:0.10" style="display: inline-block">' . $char . '</span>';
-      echo '<span class="name" style="display: inline-block">' . $char . '</span>';
+      echo '<span class="name d-inline-block' . $weight . '" uk-parallax="x:' . $x . 'vw,0;y:' . $y . 'vh,0;rotate:' . $r . ',0;opacity:0,1;viewport:0.10" style="opacity: 0">' . $char . '</span>';
     }
 
     end($array);

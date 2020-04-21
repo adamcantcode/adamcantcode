@@ -8,9 +8,9 @@ get_header();
 
 if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
-    <div class="container">
+    <!-- <div class="container-fluid">
       <div class="row">
-        <div class="parent">
+        <div class="parent w-100" style="height:100vh">
           <div class="div1">a</div>
           <div class="div2">a</div>
           <div class="div3">a</div>
@@ -28,6 +28,8 @@ if (have_posts()) : ?>
           <div class="div15">a</div>
         </div>
       </div>
+    </div> -->
+    <div class="container">
       <div class="row">
         <div class="col-2 p-0">
           <div class="align-items-center d-flex h-100">

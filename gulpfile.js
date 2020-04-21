@@ -96,6 +96,11 @@ gulp.task('bundle', shell.task([
   'browserify C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/client.js -o C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/src/js/app.bundle.js'
 ]));
 
+gulp.task('ios', shell.task([
+  'remotedebug_ios_webkit_adapter --port=9000',
+  'start chrome "chrome://inspect"',
+]));
+
 // gulp.task('default', gulp.series('css'));
 // gulp.task('js', gulp.series('js'));
 gulp.task('run', gulp.series('css', 'bundle', 'js' ));

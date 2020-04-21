@@ -1,6 +1,6 @@
 var converter = require('C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words');
 
-var countDownDate = new Date('2020-05-01T00:00:00').getTime();
+var countDownDate = new Date('2020-06-01T00:00:00').getTime();
 
 function convertAndFormat(unit) {
   var text = converter.toWords(unit);
@@ -13,7 +13,7 @@ function convertAndFormat(unit) {
   return text;
 }
 
-var myfunc = setInterval(function () {
+setInterval(function () {
   var now = new Date().getTime();
   var timeleft = countDownDate - now;
 
