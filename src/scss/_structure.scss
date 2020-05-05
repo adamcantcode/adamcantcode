@@ -6,37 +6,87 @@ html {
   height: 100vh;
 }
 
-h1 {
-  .first-line {
-    &:nth-of-type(1) {
+.home.page {
+  h1 {
+    .first-line {
+      &:nth-of-type(1) {
+      }
+      &:nth-of-type(2) {
+        font-size: $h2-font-size;
+      }
+      span {
+      }
     }
-    &:nth-of-type(2) {
-      font-size: $h2-font-size;
+  }
+  .row {
+    [class^='col-'] {
+      border-left: 1px solid rgba($primary, 0.3333);
+      border-bottom: 1px solid rgba($primary, 0.3333);
     }
-    span {
+    &:last-child {
+      border-right: 1px solid rgba($primary, 0.3333);
     }
   }
 }
-.row {
-  [class^='col-'] {
-    border-left: 1px solid rgba($primary, 0.3333);
-    border-bottom: 1px solid rgba($primary, 0.3333);
+.single {
+  .side-nav {
   }
-  &:last-child {
-    border-right: 1px solid rgba($primary, 0.3333);
+  .outline {
+    .lvl-1 {
+      @extend .h3;
+      font-weight: $font-weight-normal;
+      margin-bottom: 1rem;
+    }
+    .lvl-2 {
+      @extend .h4;
+      margin-left: 10px;
+      font-weight: $font-weight-normal;
+      margin-bottom: 1rem;
+    }
+    .lvl-3 {
+      @extend .h5;
+      font-weight: $font-weight-normal;
+      margin-bottom: 1rem;
+      margin-left: 20px;
+    }
+    .lvl-4 {
+      @extend .h5;
+      font-weight: $font-weight-light;
+      margin-bottom: 1rem;
+      margin-left: 30px;
+    }
+    .lvl-5 {
+      @extend .h5;
+      font-weight: $font-weight-lighter;
+      margin-bottom: 1rem;
+      margin-left: 40px;
+    }
+  }
+  .article-content {
+    article {
+      max-width: 533.3333px;
+    }
+  }
+  .article-details {
+    transition: all 300ms ease;
+    opacity: 1;
+    transform: translateY(0);
+    // display: block;
+    &.slide-up-out {
+      transform: translateY(-50px);
+      opacity: 0;
+      // display: none;
+    }
+  }
+  .article-more {
+    transition: all 300ms ease;
+    opacity: 0;
+    transform: translateX(50px);
+    // display: none;
+    &.slide-in-left {
+      // display: block;
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
-
-// ::selection {
-//   background: unset;
-//   color: unset;
-// }
-
-// .box {
-//   border: 1px solid #B5D2FC;
-//   box-shadow: inset 5px 5px #B5D2FC, inset -5px -5px #B5D2FC,
-//               inset 10px 10px 1px #C9DEFC, inset -10px -10px 1px #C9DEFC,
-//               inset 15px 15px  1px #D6E6FD, inset -15px -15px 1px #D6E6FD,
-//               inset 20px 20px 2px #DDEAFD, inset -20px -20px 2px #DDEAFD,
-//               inset 25px 25px 2px #F1F6FE, inset -25px -25px 2px #F1F6FE;
-// }

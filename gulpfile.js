@@ -73,7 +73,7 @@ gulp.task('js', function() {
       src.js + '/app.bundle.js'
     ])
     .pipe(concat('app.js'))
-    .pipe(terser())
+    //.pipe(terser())
     .pipe(gulp.dest(dest.js))
     .pipe(browserSync.stream());
 });
