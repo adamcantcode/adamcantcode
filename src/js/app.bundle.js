@@ -34,59 +34,39 @@ setInterval(function () {
   var hour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var min = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
   var sec = Math.floor((timeleft % (1000 * 60)) / 1000);
-  // var mil = Math.floor(timeleft % 1000);
 
-  // var days = convertAndFormat(day);
-  // var hours = convertAndFormat(hour);
-  // var mins = convertAndFormat(min);
-  // var secs = convertAndFormat(sec);
-  // var mils = convertAndFormat(mil);
+  var timeUnits = { day: day, hour: hour, min: min, sec: sec };
 
-  var timeUnits = [day, hour, min, sec];
   var converted = [];
-  timeUnits.forEach((time) => {
-    converted.push(convertAndFormat(time));
+  
+  Object.keys(timeUnits).forEach((time) => {
+    converted.push(convertAndFormat(timeUnits[time]));
   });
 
-  if (converted[0][0] !== $('.countdown .num.day span:nth-of-type(1)').text()) {
-    converted[0][0] != null
-      ? $('.countdown .num.day span:nth-of-type(1)').text(converted[0][0])
-      : $('.countdown .num.day span:nth-of-type(1)').text('');
-  }
-  if (converted[1][0] !== $('.countdown .num.hour span:nth-of-type(1)').text()) {
-    converted[1][0] != null
-      ? $('.countdown .num.hour span:nth-of-type(1)').text(converted[1][0])
-      : $('.countdown .num.hour span:nth-of-type(1)').text('');
-  }
-  if (converted[2][0] !== $('.countdown .num.min span:nth-of-type(1)').text()) {
-    converted[2][0] != null
-      ? $('.countdown .num.min span:nth-of-type(1)').text(converted[2][0])
-      : $('.countdown .num.min span:nth-of-type(1)').text('');
-  }
-  if (converted[3][0] !== $('.countdown .num.sec span:nth-of-type(1)').text()) {
-    converted[3][0] != null
-      ? $('.countdown .num.sec span:nth-of-type(1)').text(converted[3][0])
-      : $('.countdown .num.sec span:nth-of-type(1)').text('');
-  }
-  if (converted[0][1] !== $('.countdown .num.day span:nth-of-type(2)').text()) {
-    converted[0][1] != null
-      ? $('.countdown .num.day span:nth-of-type(2)').text(converted[0][1])
-      : $('.countdown .num.day span:nth-of-type(2)').text('');
-  }
-  if (converted[1][1] !== $('.countdown .num.hour span:nth-of-type(2)').text()) {
-    converted[1][1] != null
-      ? $('.countdown .num.hour span:nth-of-type(2)').text(converted[1][1])
-      : $('.countdown .num.hour span:nth-of-type(2)').text('');
-  }
-  if (converted[2][1] !== $('.countdown .num.min span:nth-of-type(2)').text()) {
-    converted[2][1] != null
-      ? $('.countdown .num.min span:nth-of-type(2)').text(converted[2][1])
-      : $('.countdown .num.min span:nth-of-type(2)').text('');
-  }
-  if (converted[3][1] !== $('.countdown .num.sec span:nth-of-type(2)').text()) {
-    converted[3][1] != null
-      ? $('.countdown .num.sec span:nth-of-type(2)').text(converted[3][1])
-      : $('.countdown .num.sec span:nth-of-type(2)').text('');
+  var i = 0;
+  for (i = 0; i < 4; i++) {
+    let spanTextZero = $(
+      `.countdown .num.${
+        Object.getOwnPropertyNames(timeUnits)[i]
+      } span:nth-of-type(1)`
+    );
+    let spanTextOne = $(
+      `.countdown .num.${
+        Object.getOwnPropertyNames(timeUnits)[i]
+      } span:nth-of-type(2)`
+    );
+
+    if (converted[i][0] !== spanTextZero.text()) {
+      converted[i][0] != null
+        ? spanTextZero.text(converted[i][0])
+        : spanTextZero.text('');
+    }
+
+    if (converted[i][1] !== spanTextOne.text()) {
+      converted[i][1] != null
+        ? spanTextOne.text(converted[i][1])
+        : spanTextOne.text('');
+    }
   }
 }, 1000);
 
