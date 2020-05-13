@@ -27,32 +27,46 @@ $(document).ready(function () {
     const scroll = $(this).height() / 2;
 
     if ($(this).scrollTop() >= scroll && trig != 1) {
-      $('.article-details').addClass('slide-up-out');
-      setTimeout(function () {
-        $('.article-details').addClass('d-none');
-        $('.article-more').addClass('slide-in-left');
-      }, 310);
-      $('.bar-title').addClass('slide-up-out');
-      setTimeout(function () {
-        $('.bar-title').addClass('d-none');
-        $('.bar-details').addClass('slide-up-in');
-      }, 320);
-
       trig = 1;
+      $('.article-details')
+        .addClass('slide-up-out')
+        .on(
+          'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+          function (e) {
+            $(this).addClass('d-none');
+            $('.article-more').removeClass('d-none');
+            setTimeout(function () {
+              $('.article-more').addClass('slide-in-left');
+            }, 50);
+
+            $(this).off(e);
+          }
+        );
+
+      // $('.bar-title').addClass('slide-up-out');
+      // setTimeout(function () {
+      //   $('.bar-title').addClass('d-none');
+      //   $('.bar-details').addClass('slide-up-in');
+      // }, 320);
     }
 
     if ($(this).scrollTop() < scroll && trig == true) {
-      $('.article-more').removeClass('slide-in-left');
-      setTimeout(function () {
-        $('.article-details').removeClass('d-none');
-      }, 350);
-      setTimeout(function () {
-        $('.article-details').removeClass('slide-up-out');
-      }, 400);
-      $('.bar-title').removeClass('d-none').removeClass('slide-up-out');
-      $('.bar-details').removeClass('slide-up-in');
-
       trig = 0;
+      $('.article-more')
+        .removeClass('slide-in-left')
+        .on(
+          'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+          function (e) {
+            $('.article-details').removeClass('d-none');
+            setTimeout(function () {
+              $('.article-details').removeClass('slide-up-out');
+            }, 50);
+            $(this).off(e);
+          }
+        );
+
+      // $('.bar-title').removeClass('d-none').removeClass('slide-up-out');
+      // $('.bar-details').removeClass('slide-up-in');
     }
   });
 });

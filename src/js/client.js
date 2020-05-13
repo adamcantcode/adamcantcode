@@ -22,52 +22,51 @@ setInterval(function () {
   var min = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
   var sec = Math.floor((timeleft % (1000 * 60)) / 1000);
   // var mil = Math.floor(timeleft % 1000);
-  
-  var days = convertAndFormat(day);
-  var hours = convertAndFormat(hour);
-  var mins = convertAndFormat(min);
-  var secs = convertAndFormat(sec);
-  // var mils = convertAndFormat(mil);
 
-  if (days[0] !== $('.countdown .num.day span:nth-of-type(1)').text()) {
-    days[0] != null
-      ? $('.countdown .num.day span:nth-of-type(1)').text(days[0])
+  var timeUnits = [day, hour, min, sec];
+  var converted = [];
+  timeUnits.forEach((time) => {
+    converted.push(convertAndFormat(time));
+  });
+
+  if (converted[0][0] !== $('.countdown .num.day span:nth-of-type(1)').text()) {
+    converted[0][0] != null
+      ? $('.countdown .num.day span:nth-of-type(1)').text(converted[0][0])
       : $('.countdown .num.day span:nth-of-type(1)').text('');
   }
-  if (hours[0] !== $('.countdown .num.hour span:nth-of-type(1)').text()) {
-    hours[0] != null
-      ? $('.countdown .num.hour span:nth-of-type(1)').text(hours[0])
+  if (converted[1][0] !== $('.countdown .num.hour span:nth-of-type(1)').text()) {
+    converted[1][0] != null
+      ? $('.countdown .num.hour span:nth-of-type(1)').text(converted[1][0])
       : $('.countdown .num.hour span:nth-of-type(1)').text('');
   }
-  if (mins[0] !== $('.countdown .num.min span:nth-of-type(1)').text()) {
-    mins[0] != null
-      ? $('.countdown .num.min span:nth-of-type(1)').text(mins[0])
+  if (converted[2][0] !== $('.countdown .num.min span:nth-of-type(1)').text()) {
+    converted[2][0] != null
+      ? $('.countdown .num.min span:nth-of-type(1)').text(converted[2][0])
       : $('.countdown .num.min span:nth-of-type(1)').text('');
   }
-  if (secs[0] !== $('.countdown .num.sec span:nth-of-type(1)').text()) {
-    secs[0] != null
-      ? $('.countdown .num.sec span:nth-of-type(1)').text(secs[0])
+  if (converted[3][0] !== $('.countdown .num.sec span:nth-of-type(1)').text()) {
+    converted[3][0] != null
+      ? $('.countdown .num.sec span:nth-of-type(1)').text(converted[3][0])
       : $('.countdown .num.sec span:nth-of-type(1)').text('');
   }
-
-  if (days[1] !== $('.countdown .num.day span:nth-of-type(2)').text()) {
-    days[1] != null
-      ? $('.countdown .num.day span:nth-of-type(2)').text(days[1])
+  if (converted[0][1] !== $('.countdown .num.day span:nth-of-type(2)').text()) {
+    converted[0][1] != null
+      ? $('.countdown .num.day span:nth-of-type(2)').text(converted[0][1])
       : $('.countdown .num.day span:nth-of-type(2)').text('');
   }
-  if (hours[1] !== $('.countdown .num.hour span:nth-of-type(2)').text()) {
-    hours[1] != null
-      ? $('.countdown .num.hour span:nth-of-type(2)').text(hours[1])
+  if (converted[1][1] !== $('.countdown .num.hour span:nth-of-type(2)').text()) {
+    converted[1][1] != null
+      ? $('.countdown .num.hour span:nth-of-type(2)').text(converted[1][1])
       : $('.countdown .num.hour span:nth-of-type(2)').text('');
   }
-  if (mins[1] !== $('.countdown .num.min span:nth-of-type(2)').text()) {
-    mins[1] != null
-      ? $('.countdown .num.min span:nth-of-type(2)').text(mins[1])
+  if (converted[2][1] !== $('.countdown .num.min span:nth-of-type(2)').text()) {
+    converted[2][1] != null
+      ? $('.countdown .num.min span:nth-of-type(2)').text(converted[2][1])
       : $('.countdown .num.min span:nth-of-type(2)').text('');
   }
-  if (secs[1] !== $('.countdown .num.sec span:nth-of-type(2)').text()) {
-    secs[1] != null
-      ? $('.countdown .num.sec span:nth-of-type(2)').text(secs[1])
+  if (converted[3][1] !== $('.countdown .num.sec span:nth-of-type(2)').text()) {
+    converted[3][1] != null
+      ? $('.countdown .num.sec span:nth-of-type(2)').text(converted[3][1])
       : $('.countdown .num.sec span:nth-of-type(2)').text('');
   }
 }, 1000);

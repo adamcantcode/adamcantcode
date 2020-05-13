@@ -68,7 +68,7 @@ html {
     }
   }
   .article-details {
-    transition: all 300ms ease;
+    transition: all 300ms cubic-bezier(.60,-0.20,.20,.1);
     opacity: 1;
     transform: translateY(0);
     // display: block;
@@ -79,7 +79,7 @@ html {
     }
   }
   .article-more {
-    transition: all 300ms ease;
+    transition: all 300ms cubic-bezier(.60,-0.20,.20,.1);
     opacity: 0;
     transform: translateX(50px);
     // display: none;

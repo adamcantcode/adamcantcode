@@ -26,7 +26,7 @@ if (have_posts()) : ?>
             ?>
           </article>
         </div>
-        <div class="col-3 details bg-bg-dark">
+        <div class="col-3 details bg-bg-dark-gray">
           <div class="sticky-top">
             <div class="article-details">
               <h1><?php the_title(); ?></h1>
@@ -62,8 +62,8 @@ if (have_posts()) : ?>
                 ?>
               </div>
             </div>
-            <div class="article-more">
-              <div class="pt-5 overflow-hidden">
+            <div class="article-more d-none overflow-hidden">
+              <div class="">
                 test
               </div>
             </div>
