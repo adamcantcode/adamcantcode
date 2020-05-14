@@ -62,10 +62,8 @@ if (have_posts()) : ?>
                 ?>
               </div>
             </div>
-            <div class="article-more d-none overflow-hidden">
-              <div class="">
-                test
-              </div>
+            <div class="article-more overflow-hidden">
+              <p class="d-none">test</p>
             </div>
           </div>
         </div>

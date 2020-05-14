@@ -45,27 +45,15 @@ setInterval(function () {
 
   var i = 0;
   for (i = 0; i < 4; i++) {
-    let spanTextZero = $(
-      `.countdown .num.${
-        Object.getOwnPropertyNames(timeUnits)[i]
-      } span:nth-of-type(1)`
-    );
-    let spanTextOne = $(
-      `.countdown .num.${
-        Object.getOwnPropertyNames(timeUnits)[i]
-      } span:nth-of-type(2)`
-    );
+    let spanTextZero = $(`.countdown .num.${Object.getOwnPropertyNames(timeUnits)[i]} span:nth-of-type(1)`);
+    let spanTextOne = $(`.countdown .num.${Object.getOwnPropertyNames(timeUnits)[i]} span:nth-of-type(2)`);
 
     if (converted[i][0] !== spanTextZero.text()) {
-      converted[i][0] != null
-        ? spanTextZero.text(converted[i][0])
-        : spanTextZero.text('');
+      converted[i][0] != null ? spanTextZero.text(converted[i][0]) : spanTextZero.text('');
     }
 
     if (converted[i][1] !== spanTextOne.text()) {
-      converted[i][1] != null
-        ? spanTextOne.text(converted[i][1])
-        : spanTextOne.text('');
+      converted[i][1] != null ? spanTextOne.text(converted[i][1]) : spanTextOne.text('');
     }
   }
 }, 1000);

@@ -27911,9 +27911,9 @@ $(document).ready(function () {
           'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
           function (e) {
             $(this).addClass('d-none');
-            $('.article-more').removeClass('d-none');
+            $('.article-more > p').removeClass('d-none');
             setTimeout(function () {
-              $('.article-more').addClass('slide-in-left');
+              $('.article-more > p').addClass('slide-in-left');
             }, 50);
 
             $(this).off(e);
@@ -27929,11 +27929,12 @@ $(document).ready(function () {
 
     if ($(this).scrollTop() < scroll && trig == true) {
       trig = 0;
-      $('.article-more')
+      $('.article-more > p')
         .removeClass('slide-in-left')
         .on(
           'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
           function (e) {
+            $(this).addClass('d-none');
             $('.article-details').removeClass('d-none');
             setTimeout(function () {
               $('.article-details').removeClass('slide-up-out');
@@ -27997,27 +27998,15 @@ setInterval(function () {
 
   var i = 0;
   for (i = 0; i < 4; i++) {
-    let spanTextZero = $(
-      `.countdown .num.${
-        Object.getOwnPropertyNames(timeUnits)[i]
-      } span:nth-of-type(1)`
-    );
-    let spanTextOne = $(
-      `.countdown .num.${
-        Object.getOwnPropertyNames(timeUnits)[i]
-      } span:nth-of-type(2)`
-    );
+    let spanTextZero = $(`.countdown .num.${Object.getOwnPropertyNames(timeUnits)[i]} span:nth-of-type(1)`);
+    let spanTextOne = $(`.countdown .num.${Object.getOwnPropertyNames(timeUnits)[i]} span:nth-of-type(2)`);
 
     if (converted[i][0] !== spanTextZero.text()) {
-      converted[i][0] != null
-        ? spanTextZero.text(converted[i][0])
-        : spanTextZero.text('');
+      converted[i][0] != null ? spanTextZero.text(converted[i][0]) : spanTextZero.text('');
     }
 
     if (converted[i][1] !== spanTextOne.text()) {
-      converted[i][1] != null
-        ? spanTextOne.text(converted[i][1])
-        : spanTextOne.text('');
+      converted[i][1] != null ? spanTextOne.text(converted[i][1]) : spanTextOne.text('');
     }
   }
 }, 1000);
