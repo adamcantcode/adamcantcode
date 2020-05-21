@@ -62,8 +62,8 @@ $colors: map-merge(
 );
 
 $primary:       #ffffff;
-$secondary:     #8FFF82;
-$bg-dark:       #1D2125;
+$secondary:     #0a0f14;
+$bg-dark:       #141D26;
 
 $theme-colors: ();
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -72,8 +72,6 @@ $theme-colors: map-merge(
     "primary":      $primary,
     "secondary":    $secondary,
     "bg-dark":      $bg-dark,
-    "bg-dark-gray": #2E3137,
-    "bg-light":     #363A3F
   ),
   $theme-colors
 );
@@ -94,24 +92,25 @@ $font-size-base:              1rem; // Assumes the browser default, typically `1
 $font-size-lg:                $font-size-base * 1.25;
 $font-size-sm:                $font-size-base * .875;
 
-$font-weight-lighter: 200;
-$font-weight-light: 300;
-$font-weight-normal: 500;
-$font-weight-bold: 600;
+$font-weight-lighter: 400;
+$font-weight-light: 400;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 $font-weight-bolder: 700;
 
-$font-weight-base:            $font-weight-light;
-$line-height-base:            1.72;
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.5;
 
-$h1-font-size:                $font-size-base * 2;
+$h1-font-size:                $font-size-base * 15;
 $h2-font-size:                $font-size-base * 1.5;
-$h3-font-size:                $font-size-base * 1.125;
-$h4-font-size:                $font-size-base * 0.875;
+$h3-font-size:                $font-size-base * 1;
+$h4-font-size:                $font-size-base * 0.5;
 $h5-font-size:                $font-size-base * 0.75;
 $h6-font-size:                $font-size-base * 0.5;
 
+// $headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-weight:        700;
-$headings-line-height:        1.5;
+$headings-line-height:        1.2;
 $headings-color:              null;
 
 $border-width:                1px;

@@ -11,7 +11,7 @@
   <meta name="author" content="">
 
   <title><?php wp_title()?></title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 
