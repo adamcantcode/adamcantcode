@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or header('Location: /'); ?>
 
 <?php
+
 /** 
  * Actions
  */
@@ -42,12 +43,11 @@ function redirect_login_page()
   } else {
     $ipaddress = 'UNKNOWN';
   }
-  if ($ipaddress !== '96.84.79.153' && $ipaddress !== '::1' && $ipaddress !== '24.1.106.157') {
-    // Where we want them to go
+  if ($ipaddress !== '96.84.79.153' && $ipaddress !== '24.1.106.157' && $ipaddress !== '::1') {
+
     $comingSoon  = '/coming-soon';
     if (strpos($_SERVER['REQUEST_URI'], 'wp-login')) {
 
-      // And away they go...
       wp_redirect($comingSoon);
       exit();
     }
