@@ -101,7 +101,6 @@ gulp.task('ios', shell.task([
   'start chrome "chrome://inspect"',
 ]));
 
-// gulp.task('default', gulp.series('css'));
-// gulp.task('js', gulp.series('js'));
-gulp.task('run', gulp.series('css', 'bundle', 'js' ));
 gulp.task('build', gulp.series('bundle', 'js' ));
+
+gulp.task('default', gulp.series('css', 'bundle', 'js' ));
