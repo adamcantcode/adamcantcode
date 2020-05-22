@@ -10,6 +10,23 @@ html {
   height: 100vh;
 }
 
+/**
+ * Nav
+ */
+.navbar {
+  z-index: 100;
+  margin-top: 5rem;
+  ul {
+    li {
+      a {
+        padding: .2rem 0!important;
+        font-weight: $font-weight-bold;
+        font-size: $h2-font-size;
+      }
+    }
+  }
+}
+
 .home.page {
   
 }

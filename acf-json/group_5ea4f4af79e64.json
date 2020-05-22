@@ -1,0 +1,72 @@
+{
+    "key": "group_5ea4f4af79e64",
+    "title": "Test Field Group",
+    "fields": [
+        {
+            "key": "field_5ea4f4bb0d405",
+            "label": "Field",
+            "name": "field",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_5ea4f4db27b98": {
+                    "key": "layout_5ea4f4db27b98",
+                    "name": "type_1",
+                    "label": "Type 1",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ea4f4e80d406",
+                            "label": "Field One",
+                            "name": "field_one",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Field",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "9"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1590173437
+}

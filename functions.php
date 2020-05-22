@@ -6,7 +6,11 @@
  * Actions
  */
 add_action('wp_enqueue_scripts', 'add_scripts_styles');
+add_action('after_setup_theme', 'register_navwalker');
 add_action('init', 'redirect_login_page');
+if (function_exists('acf_register_block_type')) {
+  add_action('acf/init', 'register_acf_block_types');
+}
 
 /**
  * Get other files
@@ -20,6 +24,46 @@ function add_scripts_styles()
 {
   wp_enqueue_style('acc-styles', get_theme_file_uri('/dist/css/app.css'));
   wp_enqueue_script('acc-script', get_theme_file_uri('/dist/js/app.js'), array('jquery'));
+}
+
+/**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker()
+{
+  require_once get_template_directory() . '/navwalker.php';
+}
+register_nav_menus(array(
+  'primary' => __('Primary Menu', 'Adam Cant Code'),
+));
+
+/**
+ * Enable svg media uploads
+ */
+function my_myme_types($mime_types)
+{
+  $mime_types['svg'] = 'image/svg+xml';
+  return $mime_types;
+}
+add_filter('upload_mimes', 'my_myme_types', 1, 1);
+
+/**
+ * Register block
+ */
+function register_acf_block_types()
+{
+
+  // register a skills block.
+  acf_register_block_type(array(
+    'name'              => 'skills',
+    'title'             => __('Skills'),
+    'description'       => __('My dev skills.'),
+    'render_template'   => 'template-parts/blocks/skills/block-skills.php',
+    'category'          => 'formatting',
+    'icon'              => 'admin-comments',
+    'keywords'          => array('skills', 'skills, frameworks, about'),
+    'enqueue_style'     => get_template_directory_uri(). '/dist/css/app.css'
+  ));
 }
 
 /**
