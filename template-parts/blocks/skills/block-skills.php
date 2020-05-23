@@ -32,7 +32,7 @@ if (!empty($block['align'])) {
   <div class="container">
     <div class="row">
       <?php while (have_rows('skills')) : the_row(); ?>
-        <div class="col-12 col-lg-3">
+        <div class="col-6 col-lg-3">
           <?php
           $icon = get_sub_field('icon');
           if ($icon) : ?>
@@ -40,7 +40,7 @@ if (!empty($block['align'])) {
           <?php endif; ?>
 
           <?php if ($skill = get_sub_field('skill')) : ?>
-            <p><?php echo esc_html($skill); ?></p>
+            <p class="font-weight-bold"><?php echo esc_html($skill); ?></p>
           <?php endif; ?>
         </div>
       <?php endwhile; ?>
