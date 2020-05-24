@@ -12,11 +12,13 @@ if (have_posts()) : ?>
     <div class="container position-relative">
       <div class="row" style="min-height: 100vh;">
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
-          <h4>Web Development</h4>
-          <h3>XL.net</h3>
-          <ul class="list-inline">
-            <li class="list-inline-item font-weight-bold">WordPress • Theme Dev • SEO</li>
-          </ul>
+          <div class="details-container">
+            <h4>Web Development</h4>
+            <h3>XL.net</h3>
+            <ul class="list-inline h5">
+              <li class="list-inline-item font-weight-bold">WordPress • Theme Dev • SEO</li>
+            </ul>
+          </div>
         </div>
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center overflow-hidden list-projects-container">
           <div class="list-projects">
@@ -37,7 +39,7 @@ if (have_posts()) : ?>
       </div>
     </div>
     <div class="overlay"></div>
-    <div class="bg-image d-flex align-items-center justify-content-center">
+    <div class="bg-image-container d-flex align-items-center justify-content-center">
       <div class="bg-image-image"><img src="https://via.placeholder.com/320x180/FF0000/" alt=""></div>
     </div>
 <?php endwhile;
