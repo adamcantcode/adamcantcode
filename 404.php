@@ -25,7 +25,6 @@ get_header();
           <span class="font-weight-bold"></span>
           <span class="font-weight-light"></span>
         </div>
-        <!-- <span class="num mil d-flex"></span> -->
       </div>
     </h1>
   </div>

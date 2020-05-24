@@ -6,14 +6,16 @@
  * Actions
  */
 add_action('wp_enqueue_scripts', 'add_scripts_styles');
-add_action('after_setup_theme', 'register_navwalker');
+
+add_action('init', 'register_projects_cpt');
+add_action('init', 'projects_taxonomy');
 add_action('init', 'redirect_login_page');
+
+add_action('after_setup_theme', 'register_navwalker');
+
 if (function_exists('acf_register_block_type')) {
   add_action('acf/init', 'register_acf_block_types');
 }
-
-add_action('init', 'register_projects_cpt', 0);
-add_action('init', 'projects_taxonomy', 0);
 
 /**
  * Get other files
@@ -91,7 +93,7 @@ function register_projects_cpt()
     'description'           => __('Project Description', 'text_domain'),
     'labels'                => $labels,
     'supports'              => array('title', 'editor', 'thumbnail'),
-    'taxonomies'            => array('category', 'post_tag'),
+    'taxonomies'            => array('type'),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
@@ -104,8 +106,9 @@ function register_projects_cpt()
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'post',
+    // 'rewrite'               => array('slug' => 'projects', 'with_front' => false),
   );
-  register_post_type('post_type', $args);
+  register_post_type('projects', $args);
 }
 // Taxonomy
 function projects_taxonomy()
@@ -142,7 +145,7 @@ function projects_taxonomy()
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
   );
-  register_taxonomy('taxonomy', array('post'), $args);
+  register_taxonomy('type', array('projects'), $args);
 }
 
 /**

@@ -1,3 +1,4 @@
+// ANCHOR Swup
 .transition-fade {
   transition: 0.4s;
   opacity: 1;
@@ -7,7 +8,7 @@ html.is-animating .transition-fade {
   opacity: 0;
 }
 
-// Countdown
+// ANCHOR Countdown
 .box {
   transition: filter 5000ms ease, opacity 500ms ease-in;
   filter: blur(25px);
@@ -16,4 +17,13 @@ html.is-animating .transition-fade {
 .box.trans {
   filter: blur(0);
   opacity: 1;
+}
+
+// ANCHOR Items motion
+.list-projects-container {
+  .list-projects {
+    &.out {
+      transition: 500ms ease;
+    }
+  }
 }

@@ -19,14 +19,64 @@ html {
   ul {
     li {
       a {
-        padding: .2rem 0!important;
+        padding: 0.2rem 0 !important;
         font-weight: $font-weight-bold;
-        font-size: $h2-font-size;
+        font-size: $font-size-base * 2;
       }
     }
   }
 }
 
 .home.page {
-  
+}
+
+/** 
+ * Archive
+ */
+
+.post-type-archive-projects {
+  // Overlay
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      rgba(16, 93, 135, 1),
+      rgba(0, 0, 0, 0)
+    );
+    opacity: 0;
+    transition: 500ms ease;
+    &.overlay-color {
+      opacity: 1;
+    }
+  }
+  // Image
+  .bg-image {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 500ms ease;
+    &.overlay-image {
+      opacity: 1;
+    }
+    .bg-image-image {
+      margin-left: 25%;
+      // transform: translateY(0);
+      img {
+        object-fit: cover;
+        object-position: center center;
+        width: 640px;
+        height: 360px;
+      }
+    }
+  }
 }

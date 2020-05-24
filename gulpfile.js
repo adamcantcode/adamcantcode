@@ -78,15 +78,6 @@ gulp.task('js', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('watch', function() {
-  browserSync.init({
-    proxy: 'http://adamcantcode.local/'
-  });
-  gulp.watch(src.scss + '/*.scss', gulp.series('css'));
-  gulp.watch(src.js + '/*.js', gulp.series('bundle', 'js')).on('change', reload);
-  gulp.watch('**/*.php').on('change', reload);
-});
-
 // gulp.task('fonts', function() {
 //   return gulp.src(src.vendor + '/@fortawesome/fontawesome-free/webfonts/*')
 //     .pipe(gulp.dest(dest.fonts));
@@ -100,6 +91,15 @@ gulp.task('ios', shell.task([
   'remotedebug_ios_webkit_adapter --port=9000',
   'start chrome "chrome://inspect"',
 ]));
+
+gulp.task('watch', function() {
+  browserSync.init({
+    proxy: 'http://adamcantcode.local/'
+  });
+  gulp.watch(src.scss + '/*.scss', gulp.series('css'));
+  gulp.watch(src.js + '/*.js', gulp.series('js')).on('change', reload);
+  gulp.watch('**/*.php').on('change', reload);
+});
 
 gulp.task('build', gulp.series('bundle', 'js' ));
 
