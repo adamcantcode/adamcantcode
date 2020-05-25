@@ -102,5 +102,19 @@ function hexToRgb($color)
   $r = hexdec($r);
   $g = hexdec($g);
   $b = hexdec($b);
-  return 'rgb('.$r.','.$g.','.$b.')';
+  return 'rgb(' . $r . ',' . $g . ',' . $b . ')';
+}
+
+/**
+ * Get the first letter
+ */
+function firstLetter($title) // Choose Chicago
+{
+  $scramble = array();
+  $words = explode(" ", $title); // ['choose', 'chicago']
+  foreach($words as $word) {
+    array_push($scramble, $word[0]);
+  }
+  $firstLetters = implode("",$scramble);
+  return $firstLetters;
 }

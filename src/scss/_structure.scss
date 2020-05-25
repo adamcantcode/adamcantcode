@@ -79,19 +79,25 @@ html {
       img {
         object-fit: cover;
         object-position: center center;
-        width: 640px;
-        height: 360px;
+        width: 832px;
+        height: 468px;
       }
     }
   }
 
   // Details
   .details-container {
-    opacity: 0;
-    pointer-events: none;
-    transition: 300ms ease-in-out;
-    &.overlay-details{
-      opacity: 1;
+    .details {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: 300ms ease-in-out;
+      pointer-events: none;
+      &.overlay-details{
+        opacity: 1;
+      }
     }
   }
 }

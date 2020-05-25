@@ -55,6 +55,7 @@ add_filter('upload_mimes', 'my_myme_types', 1, 1);
 /**
  * Register projects custom post type and taxonomy
  */
+add_theme_support( 'post-thumbnails' );
 // CPT
 function register_projects_cpt()
 {

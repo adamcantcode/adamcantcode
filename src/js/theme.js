@@ -40,15 +40,13 @@ $(document).ready(function () {
 
       $(`.overlay.id-${linkID}`).toggleClass('overlay-color');
       $(`.bg-image-container.id-${linkID}`).toggleClass('overlay-image');
-      $('.details-container').toggleClass('overlay-details');
-    },
+      $(`.details.id-${linkID}`).toggleClass('overlay-details');    },
     function () {
       let linkID = $(this).attr('id');
 
       $(`.overlay.id-${linkID}`).toggleClass('overlay-color');
       $(`.bg-image-container.id-${linkID}`).toggleClass('overlay-image');
-      $('.details-container').toggleClass('overlay-details');
-    }
+      $(`.details.id-${linkID}`).toggleClass('overlay-details');    }
   );
 
   // $('h2 a')
