@@ -43,11 +43,11 @@ html {
     width: 100%;
     z-index: -1;
     pointer-events: none;
-    background: linear-gradient(
-      to right,
-      rgba(16, 93, 135, 1),
-      rgba(0, 0, 0, 0)
-    );
+    // background: linear-gradient(
+    //   to right,
+    //   rgba(16, 93, 135, 1),
+    //   rgba(0, 0, 0, 0)
+    // );
     opacity: 0;
     transition: 500ms ease;
     &.overlay-color {
