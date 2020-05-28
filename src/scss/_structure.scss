@@ -51,7 +51,7 @@ html {
     opacity: 0;
     transition: 500ms ease;
     &.overlay-color {
-      opacity: 1;
+      opacity: .5;
     }
   }
   // Image
@@ -68,14 +68,14 @@ html {
       transition: opacity 300ms ease-in-out 150ms;
       opacity: 1;
       .bg-image-image {
-        transform: translateY(0);
-        transition: transform 300ms ease-in-out 150ms;
+        transform: scale(1);
+        transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1) 150ms;
       }
     }
     .bg-image-image {
       margin-left: 25%;
-      transform: translateY(-$spacer * 3);
-      transition: transform 150ms ease-in-out;
+      transform: scale(0.9);
+      transition: transform 250ms ease-in-out;
       img {
         object-fit: cover;
         object-position: center center;
@@ -98,6 +98,27 @@ html {
       &.overlay-details{
         opacity: 1;
       }
+    }
+  }
+}
+
+.single-projects {
+  .image-container {
+    img {
+      margin-top: 50%;
+    }
+  }
+
+  .additional-images {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 10%;
+    max-width: 750px;
+    img {
+      margin: 6rem 0;
     }
   }
 }

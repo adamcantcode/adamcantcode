@@ -112,9 +112,9 @@ function firstLetter($title) // Choose Chicago
 {
   $scramble = array();
   $words = explode(" ", $title); // ['choose', 'chicago']
-  foreach($words as $word) {
+  foreach ($words as $word) {
     array_push($scramble, $word[0]);
   }
-  $firstLetters = implode("",$scramble);
+  $firstLetters = implode("", $scramble);
   return $firstLetters;
 }
