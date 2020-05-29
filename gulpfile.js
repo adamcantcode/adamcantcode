@@ -58,7 +58,7 @@ gulp.task('js', function() {
       // src.vendor + '/lax.js/lib/lax.min.js',
       src.vendor + '/swup/dist/swup.min.js',
       src.vendor + '/@swup/scroll-plugin/dist/SwupScrollPlugin.js',
-      // src.vendor + '/number-to-words/numberToWords.js',
+      src.vendor + '/@swup/body-class-plugin/dist/SwupBodyClassPlugin.js',
       // src.vendor + '/aos/dist/aos.js',
       // src.vendor + '/blobs/index.js',
       // src.vendor + "/scroll-parallax/dist/Parallax.js",

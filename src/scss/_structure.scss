@@ -51,7 +51,7 @@ html {
     opacity: 0;
     transition: 500ms ease;
     &.overlay-color {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
   // Image
@@ -69,7 +69,7 @@ html {
       opacity: 1;
       .bg-image-image {
         transform: scale(1);
-        transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1) 150ms;
+        transition: transform 350ms cubic-bezier(0.33, 1.8, 0.66, 1) 150ms;
       }
     }
     .bg-image-image {
@@ -95,7 +95,7 @@ html {
       opacity: 0;
       transition: 300ms ease-in-out;
       pointer-events: none;
-      &.overlay-details{
+      &.overlay-details {
         opacity: 1;
       }
     }
@@ -121,4 +121,9 @@ html {
       margin: 6rem 0;
     }
   }
+}
+
+// Transition helper for swup fuck up
+.no-transition * {
+  transition: unset!important;
 }
