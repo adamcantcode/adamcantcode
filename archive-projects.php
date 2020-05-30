@@ -73,7 +73,7 @@
         ?>
         <div class="overlay id-<?php echo $id; ?>" style="background: linear-gradient(to right,<?php echo hexToRgb($brand_color) ?>,rgba(0, 0, 0, 0));"></div>
         <div class="bg-image-container id-<?php echo $id ?> d-flex align-items-center justify-content-center">
-          <div class="bg-image-image id-<?php echo $id ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt=""></div>
+          <div class="bg-image-image id-<?php echo $id ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="" class="img-fluid"></div>
         </div>
       <?php endwhile; ?>
       <?php wp_reset_postdata(); ?>
