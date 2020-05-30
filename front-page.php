@@ -6,13 +6,33 @@ get_header();
 
 if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
-		<div class="container-fluid overflow-hidden">
-			<h1>Adam</h1>
-		</div>
-		<div class="container">
-			<div class="d-flex flex-column justify-content-center" style="height:100vh">
-				<h4>Adam Macaulay</h4>
-				<h5>Web Developer</h5>
+		<div class="container-fluid">
+			<div class="countdown d-flex align-items-end p-5">
+				<h1 class="font-weight-bold">
+					<div class="box">
+						<div class="num day d-flex">
+							<span class="font-weight-bold"></span>
+							<span class="font-weight-light"></span>
+						</div>
+						<div class="num hour d-flex">
+							<span class="font-weight-bold"></span>
+							<span class="font-weight-light"></span>
+						</div>
+						<div class="num min d-flex">
+							<span class="font-weight-bold"></span>
+							<span class="font-weight-light"></span>
+						</div>
+						<div class="num sec d-flex">
+							<span class="font-weight-bold"></span>
+							<span class="font-weight-light"></span>
+						</div>
+						<div class="num mil d-flex">
+							<span class="font-weight-bold"></span>
+							<span class="font-weight-light"></span>
+						</div>
+						<!-- <span class="num mil d-flex"></span> -->
+					</div>
+				</h1>
 			</div>
 		</div>
 <?php endwhile;
