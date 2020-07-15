@@ -1,6 +1,6 @@
 var converter = require('C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words');
 
-var countDownDate = new Date('2020-07-15T00:00:00').getTime();
+var countDownDate = new Date('2020-08-01T00:00:00').getTime();
 
 function convertAndFormat(unit) {
   var text = converter.toWords(unit);
