@@ -13,8 +13,9 @@
 },{}],2:[function(require,module,exports){
 var converter = require('C:/wamp64/www/adamcantcode/wp-content/themes/adamcantcode/node_modules/number-to-words');
 
-var countDownDate = new Date('2020-09-01T00:00:00').getTime();
+var countDownDate = new Date('2021-03-23T00:00:00').getTime(); // End date
 
+// Convert and strip dashes and spaces
 function convertAndFormat(unit) {
   var text = converter.toWords(unit);
 
@@ -30,13 +31,16 @@ setInterval(function () {
   var now = new Date().getTime();
   var timeleft = countDownDate - now;
 
+  // Convert time in milliseconds to days, hours, minutes, seconds left
   var day = Math.floor(timeleft / (1000 * 60 * 60 * 24));
   var hour = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var min = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
   var sec = Math.floor((timeleft % (1000 * 60)) / 1000);
 
+  // Create object with new variables
   var timeUnits = { day: day, hour: hour, min: min, sec: sec };
 
+  // Empty 
   var converted = [];
 
   Object.keys(timeUnits).forEach((time) => {

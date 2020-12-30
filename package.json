@@ -17,25 +17,25 @@
   },
   "homepage": "https://github.com/adamcantcode/adamcantcode#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.13",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-shell": "^0.8.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-terser": "^1.2.0",
+    "gulp-terser": "^1.4.1",
     "gulp-uglify": "^3.0.2",
     "number-to-words": "^1.2.4"
   },
   "dependencies": {
     "@swup/body-class-plugin": "^1.0.2",
     "@swup/scroll-plugin": "^1.0.6",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "swup": "^2.0.9",
-    "uikit": "^3.3.8-dev.9309c161a"
+    "swup": "^2.0.11",
+    "uikit": "^3.5.9"
   }
 }
