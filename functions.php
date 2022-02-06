@@ -7,11 +7,7 @@
  */
 add_action('wp_enqueue_scripts', 'add_scripts_styles');
 
-add_action('init', 'register_projects_cpt');
-add_action('init', 'projects_taxonomy');
-add_action('init', 'redirect_login_page');
-
-add_action('after_setup_theme', 'register_navwalker');
+// add_action('init', 'redirect_login_page');
 
 if (function_exists('acf_register_block_type')) {
   add_action('acf/init', 'register_acf_block_types');

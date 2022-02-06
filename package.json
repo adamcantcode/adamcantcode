@@ -1,41 +1,50 @@
 {
   "name": "adamcantcode",
   "version": "1.0.0",
-  "description": "adamcantcode theme package",
-  "main": "index.js",
+  "description": "",
+  "main": "tailwind.config.js",
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.18"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/runtime": "^7.15.4",
+    "@wordpress/scripts": "^18.0.1",
+    "autoprefixer": "^10.4.1",
+    "babel-loader": "^8.2.3",
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss": "^8.4.5",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.0.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-stream": "^7.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --mode=development",
+    "build": "export NODE_ENV=production && webpack",
+    "watch": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adamcantcode/adamcantcode.git"
   },
-  "author": "Adam M",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/adamcantcode/adamcantcode/issues"
   },
-  "homepage": "https://github.com/adamcantcode/adamcantcode#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-shell": "^0.8.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-terser": "^1.2.0",
-    "gulp-uglify": "^3.0.2",
-    "number-to-words": "^1.2.4"
-  },
-  "dependencies": {
-    "@swup/body-class-plugin": "^1.0.2",
-    "@swup/scroll-plugin": "^1.0.6",
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1",
-    "swup": "^2.0.9",
-    "uikit": "^3.3.8-dev.9309c161a"
-  }
+  "homepage": "https://github.com/adamcantcode/adamcantcode#readme"
 }
