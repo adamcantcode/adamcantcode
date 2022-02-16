@@ -12,6 +12,59 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+
+/***/ "./src/js/components/data.js":
+/*!***********************************!*\
+  !*** ./src/js/components/data.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "data": () => (/* binding */ data),
+/* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
+/* harmony export */ });
+const data = () => {
+  // const api = 'https://newsapi.org/v2/everything?'
+  // const apiKey = 'dce83e83cc0d425aaeefdba5ba3d329f'
+
+  const newsData = localStorage.getItem('newsData');
+  if (!newsData) {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+
+    // const queries = {
+    //   'q': 'joe rogan',
+    //   'sortBy': 'popularity',
+    //   'from': '2022-02-01',
+    //   'to': '2022-02-14',
+    // }
+
+    fetch(
+      'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-02-01&to=2022-02-14&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => localStorage.setItem('newsData', result))
+      .catch((error) => console.log('error', error));
+  }
+};
+
+const manipulateData = () => {
+  const newsData = JSON.parse(localStorage.getItem('newsData'));
+  const articles = newsData.articles;
+
+  articles.forEach((element) => {
+    console.log(element.title);
+  });
+};
+
+
+
+
 /***/ })
 
 /******/ 	});
@@ -41,6 +94,23 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -61,8 +131,12 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ "./src/css/main.css");
+/* harmony import */ var _components_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/data */ "./src/js/components/data.js");
 
-console.log('hello');
+ // import {testFunction, testFunctionTwo} from './components/test';
+
+_components_data__WEBPACK_IMPORTED_MODULE_1__.data();
+_components_data__WEBPACK_IMPORTED_MODULE_1__.manipulateData();
 })();
 
 /******/ })()
