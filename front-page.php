@@ -6,7 +6,7 @@ get_header();
 
 if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
-	<div class="text text-9xl">Test</div>
+	<div id="button">click</div>
 	<?php endwhile;
 endif; ?>
 

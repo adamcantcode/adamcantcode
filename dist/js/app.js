@@ -14,6 +14,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/button.js":
+/*!*************************************!*\
+  !*** ./src/js/components/button.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "buttonClick": () => (/* binding */ buttonClick)
+/* harmony export */ });
+/* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
+
+
+const buttonClick = () => {
+  const button = document.getElementById('button');
+  console.log(button);
+  button.addEventListener('click', function () {
+    (0,_manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData)();
+  });
+};
+
+
+
+
+/***/ }),
+
 /***/ "./src/js/components/data.js":
 /*!***********************************!*\
   !*** ./src/js/components/data.js ***!
@@ -22,26 +48,17 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "data": () => (/* binding */ data),
-/* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
+/* harmony export */   "data": () => (/* binding */ data)
 /* harmony export */ });
 const data = () => {
-  // const api = 'https://newsapi.org/v2/everything?'
-  // const apiKey = 'dce83e83cc0d425aaeefdba5ba3d329f'
-
   const newsData = localStorage.getItem('newsData');
+
   if (!newsData) {
+    console.log('getting news');
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
     };
-
-    // const queries = {
-    //   'q': 'joe rogan',
-    //   'sortBy': 'popularity',
-    //   'from': '2022-02-01',
-    //   'to': '2022-02-14',
-    // }
 
     fetch(
       'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-02-01&to=2022-02-14&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
@@ -50,16 +67,40 @@ const data = () => {
       .then((response) => response.text())
       .then((result) => localStorage.setItem('newsData', result))
       .catch((error) => console.log('error', error));
+  } else {
+    console.log('no new news');
   }
 };
 
+
+
+
+/***/ }),
+
+/***/ "./src/js/components/manipulateData.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/manipulateData.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
+/* harmony export */ });
 const manipulateData = () => {
   const newsData = JSON.parse(localStorage.getItem('newsData'));
-  const articles = newsData.articles;
 
-  articles.forEach((element) => {
-    console.log(element.title);
+  const {...data} = newsData;
+  data.articles.forEach(items => {
+    for (const keyValues of Object.values(items)) {
+      console.log(keyValues);
+    }
   });
+  // console.log(data.articles);
+
+  // articles.forEach((element) => {
+  //   console.log(element.title);
+  // });
 };
 
 
@@ -132,11 +173,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ "./src/css/main.css");
 /* harmony import */ var _components_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/data */ "./src/js/components/data.js");
+/* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
 
- // import {testFunction, testFunctionTwo} from './components/test';
 
-_components_data__WEBPACK_IMPORTED_MODULE_1__.data();
-_components_data__WEBPACK_IMPORTED_MODULE_1__.manipulateData();
+ // import * as manipulatedData from './components/manipulateData';
+// import {testFunction, testFunctionTwo} from './components/test';
+
+document.addEventListener('DOMContentLoaded', function () {
+  _components_data__WEBPACK_IMPORTED_MODULE_1__.data();
+  _components_button__WEBPACK_IMPORTED_MODULE_2__.buttonClick();
+});
 })();
 
 /******/ })()
