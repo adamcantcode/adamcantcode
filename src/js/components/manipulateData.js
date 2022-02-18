@@ -10,6 +10,7 @@ function DataManipulator() {
       console.log(title);
     });
   };
+
   this.getAuthors = () => {
     const { articles } = newsData;
     articles.forEach((items) => {
