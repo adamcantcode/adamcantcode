@@ -29,9 +29,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const buttonClick = () => {
   const button = document.getElementById('button');
-  console.log(button);
   button.addEventListener('click', function () {
-    (0,_manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData)();
+    _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.arrangeData();
   });
 };
 
@@ -87,21 +86,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
 /* harmony export */ });
-const manipulateData = () => {
-  const newsData = JSON.parse(localStorage.getItem('newsData'));
+function DataManipulator() {
 
-  const {...data} = newsData;
-  data.articles.forEach(items => {
-    for (const keyValues of Object.values(items)) {
-      console.log(keyValues);
-    }
-  });
-  // console.log(data.articles);
+  this.arrangeData = function () {
+    const newsData = JSON.parse(localStorage.getItem('newsData'));
+    const { ...data } = newsData;
 
-  // articles.forEach((element) => {
-  //   console.log(element.title);
-  // });
-};
+    data.articles.forEach((items) => {
+      for (const keyValues of Object.values(items)) {
+        console.log(keyValues);
+      }
+    });
+    
+  };
+}
+
+const manipulateData = new DataManipulator();
 
 
 
