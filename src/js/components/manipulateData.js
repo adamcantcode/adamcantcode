@@ -1,15 +1,21 @@
 function DataManipulator() {
+  const newsData = JSON.parse(localStorage.getItem('newsData'));
 
-  this.arrangeData = function () {
-    const newsData = JSON.parse(localStorage.getItem('newsData'));
-    const { ...data } = newsData;
+  console.log(newsData);
 
-    data.articles.forEach((items) => {
-      for (const keyValues of Object.values(items)) {
-        console.log(keyValues);
-      }
+  this.getTitles = () => {
+    const { articles } = newsData;
+    articles.forEach((items) => {
+      const { title } = items;
+      console.log(title);
     });
-    
+  };
+  this.getAuthors = () => {
+    const { articles } = newsData;
+    articles.forEach((items) => {
+      const { author } = items;
+      console.log(author);
+    });
   };
 }
 

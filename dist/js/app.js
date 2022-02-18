@@ -26,11 +26,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
 
+let clickedOnce = false;
 
 const buttonClick = () => {
-  const button = document.getElementById('button');
-  button.addEventListener('click', function () {
-    _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.arrangeData();
+  // const button = document.getElementById('button');
+  button.addEventListener('click', () => { // Holy shit. does it find the elementID by default
+    if (!clickedOnce) {
+      _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getTitles();
+      clickedOnce = !clickedOnce;
+    } else {
+      _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getAuthors();
+      clickedOnce = !clickedOnce;
+    }
   });
 };
 
@@ -87,17 +94,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
 /* harmony export */ });
 function DataManipulator() {
+  const newsData = JSON.parse(localStorage.getItem('newsData'));
 
-  this.arrangeData = function () {
-    const newsData = JSON.parse(localStorage.getItem('newsData'));
-    const { ...data } = newsData;
+  console.log(newsData);
 
-    data.articles.forEach((items) => {
-      for (const keyValues of Object.values(items)) {
-        console.log(keyValues);
-      }
+  this.getTitles = () => {
+    const { articles } = newsData;
+    articles.forEach((items) => {
+      const { title } = items;
+      console.log(title);
     });
-    
+  };
+  this.getAuthors = () => {
+    const { articles } = newsData;
+    articles.forEach((items) => {
+      const { author } = items;
+      console.log(author);
+    });
   };
 }
 
