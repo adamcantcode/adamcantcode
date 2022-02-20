@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./**/*.php', './*.php'],
+  content: [
+    './**/*.php', 
+    './*.php', 
+    './src/**/*.js'],
   theme: {
     fontFamily: {
       'sans': ['"Ubuntu Mono"', 'system-ui'],

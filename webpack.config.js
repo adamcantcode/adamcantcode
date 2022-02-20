@@ -51,7 +51,7 @@ module.exports = (env, argv) => {
       }),
 
       new BrowserSyncPlugin({
-        files: ['./**/*.php', './**/*.css'],
+        files: ['./**/*.php', './**/*.css', './**/*.js'],
         proxy: localDomain,
         browser: 'brave browser',
       }),

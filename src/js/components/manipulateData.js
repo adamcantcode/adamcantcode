@@ -1,14 +1,13 @@
 function DataManipulator() {
   const newsData = JSON.parse(localStorage.getItem('newsData'));
-
-  console.log(newsData);
-
   this.getTitles = () => {
     const { articles } = newsData;
+    let titles = [];
     articles.forEach((items) => {
       const { title } = items;
-      console.log(title);
+      titles.push(title);
     });
+    return titles;
   };
 
   this.getAuthors = () => {

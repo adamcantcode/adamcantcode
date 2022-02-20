@@ -25,14 +25,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "buttonClick": () => (/* binding */ buttonClick)
 /* harmony export */ });
 /* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
+/* harmony import */ var _elements_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/list */ "./src/js/components/elements/list.js");
+
 
 let clickedOnce = false;
 
 const buttonClick = () => {
   // const button = document.getElementById('button');
-  button.addEventListener('click', () => { // Holy shit. does it find the elementID by default
+  button.addEventListener('click', () => {
+    // Holy shit--does it find the elementID by default?
+    // Get the titles on first click, then authors
     if (!clickedOnce) {
-      _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getTitles();
+      const returnData = _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getTitles();
+      returnData.forEach(item => {
+        _elements_list__WEBPACK_IMPORTED_MODULE_1__.createElement.createElement('div', 'text-rose-500', item);
+      });
       clickedOnce = !clickedOnce;
     } else {
       _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getAuthors();
@@ -83,6 +90,33 @@ const data = () => {
 
 /***/ }),
 
+/***/ "./src/js/components/elements/list.js":
+/*!********************************************!*\
+  !*** ./src/js/components/elements/list.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createElement": () => (/* binding */ createElement)
+/* harmony export */ });
+function CreateElement() {
+  this.createElement = (tag, classes, content) => {
+    console.log('creating');
+    const newElement = document.createElement(tag);
+    newElement.classList.add(classes);
+    newElement.textContent = content;
+    document.querySelector('#swup').append(newElement);
+  };
+}
+
+const createElement = new CreateElement();
+
+
+
+
+/***/ }),
+
 /***/ "./src/js/components/manipulateData.js":
 /*!*********************************************!*\
   !*** ./src/js/components/manipulateData.js ***!
@@ -95,16 +129,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function DataManipulator() {
   const newsData = JSON.parse(localStorage.getItem('newsData'));
-
-  console.log(newsData);
-
   this.getTitles = () => {
     const { articles } = newsData;
+    let titles = [];
     articles.forEach((items) => {
       const { title } = items;
-      console.log(title);
+      titles.push(title);
     });
+    return titles;
   };
+
   this.getAuthors = () => {
     const { articles } = newsData;
     articles.forEach((items) => {
@@ -189,8 +223,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
 
 
- // import * as manipulatedData from './components/manipulateData';
-// import {testFunction, testFunctionTwo} from './components/test';
+ // Needed because js is running before button element is acutally rendered
 
 document.addEventListener('DOMContentLoaded', function () {
   _components_data__WEBPACK_IMPORTED_MODULE_1__.data();
