@@ -3,7 +3,7 @@ function CreateElement() {
     const newElement = document.createElement(tag);
     newElement.classList += classes;
     newElement.textContent = content;
-    document.querySelector('#swup').append(newElement);
+    document.querySelector('#list').append(newElement);
     window.getComputedStyle(newElement).opacity;
     newElement.classList.remove('opacity-0');
   };

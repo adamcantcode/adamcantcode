@@ -1,3 +1,4 @@
+import { list } from 'postcss';
 import { data } from './data';
 import { manipulateData } from './manipulateData';
 
@@ -17,6 +18,7 @@ function ButtonClick() {
         }
         clickedOnce = !clickedOnce;
       } else {
+        document.getElementById('list').textContent = '';
         clickedOnce = !clickedOnce;
       }
     });
