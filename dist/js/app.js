@@ -37,8 +37,11 @@ const buttonClick = () => {
     // Get the titles on first click, then authors
     if (!clickedOnce) {
       const returnData = _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getTitles();
-      returnData.forEach(item => {
-        _elements_list__WEBPACK_IMPORTED_MODULE_1__.createElement.createElement('div', 'text-rose-500', item);
+      const interval = 30;
+      returnData.forEach((item, index) => {
+        setTimeout(() => {
+          _elements_list__WEBPACK_IMPORTED_MODULE_1__.createElement.createElement('div', 'text-rose-500 opacity-0 transition duration-500', item);
+        }, index * interval);
       });
       clickedOnce = !clickedOnce;
     } else {
@@ -102,11 +105,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function CreateElement() {
   this.createElement = (tag, classes, content) => {
-    console.log('creating');
     const newElement = document.createElement(tag);
-    newElement.classList.add(classes);
+    newElement.classList += classes;
     newElement.textContent = content;
     document.querySelector('#swup').append(newElement);
+    window.getComputedStyle(newElement).opacity;
+    newElement.classList.remove('opacity-0');
   };
 }
 

@@ -9,8 +9,11 @@ const buttonClick = () => {
     // Get the titles on first click, then authors
     if (!clickedOnce) {
       const returnData = manipulateData.getTitles();
-      returnData.forEach(item => {
-        createElement.createElement('div', 'text-rose-500', item);
+      const interval = 30;
+      returnData.forEach((item, index) => {
+        setTimeout(() => {
+          createElement.createElement('div', 'text-rose-500 opacity-0 transition duration-500', item);
+        }, index * interval);
       });
       clickedOnce = !clickedOnce;
     } else {
