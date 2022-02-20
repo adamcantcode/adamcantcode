@@ -1,21 +1,29 @@
+import { data } from './data';
+import { createElement } from './elements/list';
+
 function DataManipulator() {
-  const newsData = JSON.parse(localStorage.getItem('newsData'));
-  this.getTitles = () => {
-    const { articles } = newsData;
+  this.listData = (data) => {
+    const returnData = manipulateData.getTitles(data);
+    const interval = 30;
+    returnData.forEach((item, index) => {
+      setTimeout(() => {
+        createElement.createElement(
+          'div',
+          'lowercase text-rose-500 opacity-0 transition duration-500',
+          item
+        );
+      }, index * interval);
+    });
+  };
+
+  this.getTitles = (data) => {
+    const { articles } = data;
     let titles = [];
     articles.forEach((items) => {
       const { title } = items;
       titles.push(title);
     });
     return titles;
-  };
-
-  this.getAuthors = () => {
-    const { articles } = newsData;
-    articles.forEach((items) => {
-      const { author } = items;
-      console.log(author);
-    });
   };
 }
 

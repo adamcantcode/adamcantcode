@@ -24,32 +24,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "buttonClick": () => (/* binding */ buttonClick)
 /* harmony export */ });
-/* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
-/* harmony import */ var _elements_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/list */ "./src/js/components/elements/list.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/js/components/data.js");
+/* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
 
 
-let clickedOnce = false;
 
-const buttonClick = () => {
-  // const button = document.getElementById('button');
-  button.addEventListener('click', () => {
-    // Holy shit--does it find the elementID by default?
-    // Get the titles on first click, then authors
-    if (!clickedOnce) {
-      const returnData = _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getTitles();
-      const interval = 30;
-      returnData.forEach((item, index) => {
-        setTimeout(() => {
-          _elements_list__WEBPACK_IMPORTED_MODULE_1__.createElement.createElement('div', 'text-rose-500 opacity-0 transition duration-500', item);
-        }, index * interval);
-      });
-      clickedOnce = !clickedOnce;
-    } else {
-      _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.getAuthors();
-      clickedOnce = !clickedOnce;
-    }
-  });
-};
+function ButtonClick() {
+  let clickedOnce = false;
+  this.buttonClick = () => {
+    // const button = document.getElementById('button');
+    button.addEventListener('click', () => {
+      // Holy shit--does it find the elementID by default?
+      // Get the titles on first click, then authors
+      if (!clickedOnce) {
+        const localNewsData = JSON.parse(localStorage.getItem('newsData'));
+        if (!localNewsData) {
+          (0,_data__WEBPACK_IMPORTED_MODULE_0__.data)();
+        } else {
+          _manipulateData__WEBPACK_IMPORTED_MODULE_1__.manipulateData.listData(localNewsData);
+        }
+        clickedOnce = !clickedOnce;
+      } else {
+        clickedOnce = !clickedOnce;
+      }
+    });
+  };
+}
+
+const buttonClick = new ButtonClick();
 
 
 
@@ -66,26 +68,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "data": () => (/* binding */ data)
 /* harmony export */ });
-const data = () => {
-  const newsData = localStorage.getItem('newsData');
+/* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
 
-  if (!newsData) {
-    console.log('getting news');
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
 
-    fetch(
-      'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-02-01&to=2022-02-14&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => localStorage.setItem('newsData', result))
-      .catch((error) => console.log('error', error));
-  } else {
-    console.log('no new news');
-  }
+const data = (localNewsData) => {
+  console.log('getting news');
+  const requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+  };
+
+  fetch(
+    'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-02-01&to=2022-02-14&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      localStorage.setItem('newsData', result);
+      const data = JSON.parse(localStorage.getItem('newsData'));
+      _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.listData(data);
+    })
+    .catch((error) => console.log('error', error));
 };
 
 
@@ -131,24 +134,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "manipulateData": () => (/* binding */ manipulateData)
 /* harmony export */ });
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/js/components/data.js");
+/* harmony import */ var _elements_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/list */ "./src/js/components/elements/list.js");
+
+
+
 function DataManipulator() {
-  const newsData = JSON.parse(localStorage.getItem('newsData'));
-  this.getTitles = () => {
-    const { articles } = newsData;
+  this.listData = (data) => {
+    const returnData = manipulateData.getTitles(data);
+    const interval = 30;
+    returnData.forEach((item, index) => {
+      setTimeout(() => {
+        _elements_list__WEBPACK_IMPORTED_MODULE_1__.createElement.createElement(
+          'div',
+          'lowercase text-rose-500 opacity-0 transition duration-500',
+          item
+        );
+      }, index * interval);
+    });
+  };
+
+  this.getTitles = (data) => {
+    const { articles } = data;
     let titles = [];
     articles.forEach((items) => {
       const { title } = items;
       titles.push(title);
     });
     return titles;
-  };
-
-  this.getAuthors = () => {
-    const { articles } = newsData;
-    articles.forEach((items) => {
-      const { author } = items;
-      console.log(author);
-    });
   };
 }
 
@@ -230,8 +243,8 @@ __webpack_require__.r(__webpack_exports__);
  // Needed because js is running before button element is acutally rendered
 
 document.addEventListener('DOMContentLoaded', function () {
-  _components_data__WEBPACK_IMPORTED_MODULE_1__.data();
-  _components_button__WEBPACK_IMPORTED_MODULE_2__.buttonClick();
+  // Data.data();
+  _components_button__WEBPACK_IMPORTED_MODULE_2__.buttonClick.buttonClick();
 });
 })();
 

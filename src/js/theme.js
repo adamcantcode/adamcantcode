@@ -5,6 +5,6 @@ import * as Button from './components/button';
 
 // Needed because js is running before button element is acutally rendered
 document.addEventListener('DOMContentLoaded', () => {
-  Data.data();
-  Button.buttonClick();
+  // Data.data();
+  Button.buttonClick.buttonClick();
 });

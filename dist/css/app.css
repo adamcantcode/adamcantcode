@@ -466,8 +466,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .block {
   display: block;
 }
+.inline-block {
+  display: inline-block;
+}
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.lowercase {
+  text-transform: lowercase;
 }
 .text-rose-500 {
   --tw-text-opacity: 1;
@@ -488,6 +494,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .duration-500 {
   transition-duration: 500ms;
+}
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=app.css.map*/
