@@ -3,7 +3,8 @@ import { createElement } from './elements/list';
 
 function DataManipulator() {
   this.listData = (data) => {
-    const returnData = manipulateData.getTitles(data);
+    // const returnData = manipulateData.getTitles(data);
+    const returnData = manipulateData.getSources(data);
     const interval = 30;
     returnData.forEach((item, index) => {
       setTimeout(() => {
@@ -24,6 +25,26 @@ function DataManipulator() {
       titles.push(title);
     });
     return titles;
+  };
+
+  this.getSources = (data) => {
+    const { articles } = data;
+    let sources = [];
+    articles.forEach((items) => {
+      const { source : { name } } = items;
+      sources.push(name);
+    });
+    return sources;
+  };
+
+  this.postDate = (data) => {
+    const { articles } = data;
+    let publishDates = [];
+    articles.forEach((items) => {
+      const { publishedAt } = items;
+      publishDates.push(publishedAt);
+    });
+    return publishDates;
   };
 }
 

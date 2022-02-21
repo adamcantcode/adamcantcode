@@ -1,4 +1,3 @@
-import { list } from 'postcss';
 import { data } from './data';
 import { manipulateData } from './manipulateData';
 
