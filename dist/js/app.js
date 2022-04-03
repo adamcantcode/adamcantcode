@@ -80,13 +80,14 @@ const data = (localNewsData) => {
   };
 
   fetch(
-    'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-02-01&to=2022-02-14&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
+    'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-03-20&to=2022-03-22&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
     requestOptions
   )
     .then((response) => response.text())
     .then((result) => {
       localStorage.setItem('newsData', result);
       const data = JSON.parse(localStorage.getItem('newsData'));
+      console.log(data);
       _manipulateData__WEBPACK_IMPORTED_MODULE_0__.manipulateData.listData(data);
     })
     .catch((error) => console.log('error', error));
@@ -143,7 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 function DataManipulator() {
   this.listData = (data) => {
     // const returnData = manipulateData.getTitles(data);
-    const returnData = manipulateData.getSources(data);
+    console.log(data);
+    const returnData = manipulateData.getTitles(data);
     const interval = 30;
     returnData.forEach((item, index) => {
       setTimeout(() => {

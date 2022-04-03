@@ -4,7 +4,8 @@ import { createElement } from './elements/list';
 function DataManipulator() {
   this.listData = (data) => {
     // const returnData = manipulateData.getTitles(data);
-    const returnData = manipulateData.getSources(data);
+    console.log(data);
+    const returnData = manipulateData.getTitles(data);
     const interval = 30;
     returnData.forEach((item, index) => {
       setTimeout(() => {
