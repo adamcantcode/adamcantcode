@@ -70,19 +70,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "data": () => (/* binding */ data)
 /* harmony export */ });
 /* harmony import */ var _manipulateData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./manipulateData */ "./src/js/components/manipulateData.js");
+/* harmony import */ var _search_values_get_values__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_values/get-values */ "./src/js/components/search_values/get-values.js");
 
 
-const data = (localNewsData) => {
+
+const data = (values) => {
+  console.log(values);
   console.log('getting news');
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
   };
 
-  fetch(
-    'https://newsapi.org/v2/everything?q="joe rogan"&sortBy=popularity&from=2022-03-20&to=2022-03-22&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f',
-    requestOptions
-  )
+  var url = `https://newsapi.org/v2/everything?q="${values}"&sortBy=popularity&from=2022-04-02&to=2022-04-02&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f`;
+
+  fetch(url, requestOptions)
     .then((response) => response.text())
     .then((result) => {
       localStorage.setItem('newsData', result);
@@ -126,6 +128,31 @@ const createElement = new CreateElement();
 
 /***/ }),
 
+/***/ "./src/js/components/initial_state/cursor-focus.js":
+/*!*********************************************************!*\
+  !*** ./src/js/components/initial_state/cursor-focus.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "handleCursor": () => (/* binding */ handleCursor)
+/* harmony export */ });
+function HandleCursor() {
+  this.cursorFocus = () => {
+    var searchContainer = document.getElementById('search');
+    searchContainer.focus();
+    searchContainer.select();
+  };
+}
+
+const handleCursor = new HandleCursor();
+
+
+
+
+/***/ }),
+
 /***/ "./src/js/components/manipulateData.js":
 /*!*********************************************!*\
   !*** ./src/js/components/manipulateData.js ***!
@@ -144,7 +171,6 @@ __webpack_require__.r(__webpack_exports__);
 function DataManipulator() {
   this.listData = (data) => {
     // const returnData = manipulateData.getTitles(data);
-    console.log(data);
     const returnData = manipulateData.getTitles(data);
     const interval = 30;
     returnData.forEach((item, index) => {
@@ -190,6 +216,39 @@ function DataManipulator() {
 }
 
 const manipulateData = new DataManipulator();
+
+
+
+
+/***/ }),
+
+/***/ "./src/js/components/search_values/get-values.js":
+/*!*******************************************************!*\
+  !*** ./src/js/components/search_values/get-values.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "searchValues": () => (/* binding */ searchValues)
+/* harmony export */ });
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data */ "./src/js/components/data.js");
+
+
+function SearchValues() {
+  this.getValues = () => {
+    var searchField = document.getElementById('search');
+    searchField.addEventListener('keypress', (e) => {
+      if(e.keyCode == 13) {
+        var values = searchField.value;
+        console.log('getting vals');
+        (0,_data__WEBPACK_IMPORTED_MODULE_0__.data)(values);
+      }
+    })
+  };
+}
+
+const searchValues = new SearchValues();
 
 
 
@@ -260,12 +319,23 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ "./src/css/main.css");
-/* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
+/* harmony import */ var _components_initial_state_cursor_focus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/initial_state/cursor-focus */ "./src/js/components/initial_state/cursor-focus.js");
+/* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
+/* harmony import */ var _components_search_values_get_values__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/search_values/get-values */ "./src/js/components/search_values/get-values.js");
+
+
 
  // Needed because js is running before button element is acutally rendered
 
 document.addEventListener('DOMContentLoaded', function () {
-  _components_button__WEBPACK_IMPORTED_MODULE_1__.buttonClick.buttonClick();
+  _components_initial_state_cursor_focus__WEBPACK_IMPORTED_MODULE_1__.handleCursor.cursorFocus();
+  _components_button__WEBPACK_IMPORTED_MODULE_2__.buttonClick.buttonClick();
+  _components_search_values_get_values__WEBPACK_IMPORTED_MODULE_3__.searchValues.getValues(); // Display inital page state
+  // Handle curson
+  // Handle search query
+  // Get data
+  // Display data
+  // Handle 
 });
 })();
 

@@ -21,5 +21,5 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class() ?>>
-  <div id="swup" class="transition-fade">
+<body <?php body_class(array('bg-[#1B1924]')) ?>>
+  <div id="swup" class="transition-fade ">
