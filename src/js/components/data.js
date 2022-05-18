@@ -9,7 +9,7 @@ const data = (values) => {
     redirect: 'follow',
   };
 
-  var url = `https://newsapi.org/v2/everything?q="${values}"&sortBy=popularity&from=2022-04-02&to=2022-04-02&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f`;
+  var url = `https://newsapi.org/v2/everything?q="${values}"&sortBy=popularity&from=2022-05-07&to=2022-05-15&pageSize=100&apiKey=dce83e83cc0d425aaeefdba5ba3d329f`;
 
   fetch(url, requestOptions)
     .then((response) => response.text())

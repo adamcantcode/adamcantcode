@@ -476,9 +476,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex {
   display: flex;
 }
-.w-5\/6 {
-  width: 83.333333%;
-}
 .w-1\/2 {
   width: 50%;
 }
@@ -494,13 +491,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 .items-center {
   align-items: center;
 }
-.bg-\[\#1B1924\] {
-  --tw-bg-opacity: 1;
-  background-color: rgba(27, 25, 36, var(--tw-bg-opacity));
-}
 .bg-\[\#2D293D\] {
   --tw-bg-opacity: 1;
   background-color: rgba(45, 41, 61, var(--tw-bg-opacity));
+}
+.bg-\[\#1B1924\] {
+  --tw-bg-opacity: 1;
+  background-color: rgba(27, 25, 36, var(--tw-bg-opacity));
 }
 .px-4 {
   padding-left: 1rem;
